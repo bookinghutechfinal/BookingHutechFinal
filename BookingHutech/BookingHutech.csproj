@@ -143,6 +143,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api_BHutech\BHutech_Services\AccountServices\AccountServices.cs" />
     <Compile Include="Api_BHutech\BHutech_Services\CarServices\CarManagerServices.cs" />
     <Compile Include="Api_BHutech\BHutech_Services\CarServices\CarServices.cs" />
     <Compile Include="Api_BHutech\Lib\Utils\Permissions.cs" />
@@ -156,7 +157,9 @@
     <Compile Include="Api_BHutech\Lib\Utils\DataEntity.cs" />
     <Compile Include="Api_BHutech\Models\AccountInfo.cs" />
     <Compile Include="Api_BHutech\Models\Car.cs" />
+    <Compile Include="Api_BHutech\Models\Request\AccountRequest\AccountLoginRequestModel.cs" />
     <Compile Include="Api_BHutech\Models\Request\BookingCarRequest\ListCarRequestModel.cs" />
+    <Compile Include="Api_BHutech\Models\Response\AccountResponse\AccountLoginResponseModel.cs" />
     <Compile Include="Api_BHutech\Models\Response\IResponse.cs" />
     <Compile Include="Api_BHutech\Models\Response\BookingCarResponse\ListCarResponseModel.cs" />
     <Compile Include="Api_BHutech\Models\Unit.cs" />
@@ -206,6 +209,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Api_BHutech\Lib\Utils\Log\Ex_BHutechLog.txt" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -2175,7 +2179,8 @@
     <Content Include="Views\App\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Api_BHutech\Lib\Utils\Log\" />
+    <Folder Include="Api_BHutech\DAO\AccountManagerDAO\" />
+    <Folder Include="Api_BHutech\Lib\Utils\Log\Log\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

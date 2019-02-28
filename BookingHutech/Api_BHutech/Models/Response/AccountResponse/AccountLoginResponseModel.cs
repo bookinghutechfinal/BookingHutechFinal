@@ -11,7 +11,6 @@ namespace BookingHutech.Api_BHutech.Models.Response.AccountResponse
         public string FullName { get; set; } 
         public int Gender { get; set; }
         public DateTime Birthday { get; set; } 
-        public string IDCard { get; set; }
         public string Addres { get; set; } 
         public DateTime CreateDate { get; set; }
         public DateTime LastModifiedDate { get; set; }
