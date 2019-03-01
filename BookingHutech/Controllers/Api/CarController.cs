@@ -39,7 +39,7 @@ namespace BookingHutech.Controllers.Api
                     }
                     catch (Exception ex) // Thực hiện gọi hàm truy vấn ở lớp trên bị lỗi. 
                     {
-                        LogWriter.WriteException(ex);
+                      //  LogWriter.WriteException(ex);
                         return ApiResponse.Error();
                     }
                 }

@@ -31,10 +31,10 @@ namespace BookingHutech.Api_BHutech.CarServices.CarServices
                 return result.listCar = employeeDAO.GetListEmployeeDAO(uspGetListCar); 
  
             }
-            catch (BHutechException ex)
+            catch (Exception ex)
             {
-                LogWriter.WriteException(ex);
-                return result.listCar = null;
+                //LogWriter.WriteException(ex);
+                throw; 
             }
  
         }

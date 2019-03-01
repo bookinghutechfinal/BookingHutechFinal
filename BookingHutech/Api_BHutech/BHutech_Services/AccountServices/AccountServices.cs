@@ -1,6 +1,8 @@
 ﻿using BookingHutech.Api_BHutech.DAO.AccountDAO;
 using BookingHutech.Api_BHutech.Lib;
 using BookingHutech.Api_BHutech.Models.Request.AccountRequest;
+using BookingHutech.Api_BHutech.Models.Response;
+using BookingHutech.Api_BHutech.Models.Response.AccountResponse;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +12,8 @@ namespace BookingHutech.Api_BHutech.BHutech_Services.AccountServices
 {
     public class AccountServices
     {
+        AccountDAO accountDAO = new AccountDAO(); 
+
         /// <summary>
         /// 
         /// </summary>
@@ -17,8 +21,7 @@ namespace BookingHutech.Api_BHutech.BHutech_Services.AccountServices
         /// <returns></returns>
         public void AccountLogoutServices(AccountLogoutRequestModel request)
         {
-
-            AccountDAO accountDAO = new AccountDAO();
+             
             try
             { 
                 accountDAO.AccountLogoutDAO(request); 
@@ -28,6 +31,32 @@ namespace BookingHutech.Api_BHutech.BHutech_Services.AccountServices
                 LogWriter.WriteException(ex); 
             }
 
+        }
+
+        /// <summary>
+        /// Anh.Tran: Create 24/1/2019 
+        /// GetListCarDAL
+        /// </summary>
+        /// <param name="">ListCarRequestModel</param>
+        /// <returns>ListCarResponseModel</returns> 
+        public AccountLoginResponseModel AccountLoginServices(AccountLoginRequestModel request)
+        {
+            
+            AccountLoginResponseModel accountLoginResponse = new AccountLoginResponseModel(); 
+            try
+            { 
+                string uspAccountLogin = Prototype.SqlCommandStore.uspAccountLogin + " '" +request.UserName+"' , '"+request.Password+"' ";
+                string uspGetRuleCodeByAccount = Prototype.SqlCommandStore.uspGetRuleCodeByAccount + " '" + request.UserName + "' , '" + request.Password + "' ";
+                accountLoginResponse.GetAccountInfo = accountDAO.GetAccountInfoDAO(uspAccountLogin);
+                accountLoginResponse.hsGetRoleCode = accountDAO.GetRoleCodeDAO(uspGetRuleCodeByAccount);
+                return accountLoginResponse;
+            }
+            catch (Exception ex)
+            {
+                 LogWriter.WriteException(ex);
+                throw;
+            }
+             
         }
     }
 }

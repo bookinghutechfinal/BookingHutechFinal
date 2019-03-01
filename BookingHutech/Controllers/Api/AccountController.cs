@@ -61,7 +61,7 @@ namespace BookingHutech.Controllers.Api
         [HttpPost]
         public ApiResponse Login([FromBody] AccountLoginRequestModel request)
         {
-            CarServices carServices = new CarServices();
+            AccountServices accountServices = new AccountServices();
             try
             {
                 // kiểm tra quyền, và nguồn gọi. 
@@ -70,22 +70,20 @@ namespace BookingHutech.Controllers.Api
                     try
                     {
                         // Kiểm tra UserName, Password
-                        //if (DataEntity.CheckDataLogin(request.UserName) == false && DataEntity.CheckDataLogin(request.Password) == false)
-                        //    return ApiResponse.ErrorInputDataEntity(); 
+                        //if (dataentity.checkdatalogin(request.username) == false && dataentity.checkdatalogin(request.password) == false)
+                        //    return apiresponse.errorinputdataentity();
                         //else
                         //{
-                        //    request.Password = EncodePassword.CreateSHA256(request.Password); 
-                        //    //var Response = carServices.GetListCarDAL(request);
-                        //    return ApiResponse.Success();
+                        //    request.password = encodepassword.createsha256(request.password);
+                        //    //var response = carservices.getlistcardal(request);
+                        //    return apiresponse.success();
                         //} 
-
-                        request.Password = EncodePassword.CreateSHA256(request.Password);
-                        //var Response = carServices.GetListCarDAL(request);
-                        return ApiResponse.Success();
+                      //  request.Password = EncodePassword.CreateSHA256(request.Password);
+                        var Response = accountServices.AccountLoginServices(request);
+                        return ApiResponse.Success(Response);
                     }
                     catch (Exception ex) // Thực hiện gọi hàm truy vấn ở lớp trên bị lỗi. 
                     {
-                        LogWriter.WriteException(ex);
                         return ApiResponse.Error();
                     }
                 }
