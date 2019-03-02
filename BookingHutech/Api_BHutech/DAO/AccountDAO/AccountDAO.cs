@@ -117,6 +117,7 @@ namespace BookingHutech.Api_BHutech.DAO.AccountDAO
             {
                 con.Close();
                 LogWriter.WriteException(ex);
+                throw;
             }
         }
 
