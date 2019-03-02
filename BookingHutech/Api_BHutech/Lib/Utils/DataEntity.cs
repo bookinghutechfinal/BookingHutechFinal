@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
-
+using BookingHutech.Api_BHutech.Models.Response;
+using BookingHutech.Api_BHutech.Models.Response.AccountResponse;
 namespace BookingHutech.Api_BHutech.Lib.Utils
 {
     public class DataEntity
@@ -37,7 +38,7 @@ namespace BookingHutech.Api_BHutech.Lib.Utils
             && regex.IsMatch(input)
             && hasMinimum8Chars.IsMatch(input)
             && checkLength(input) == true;
-            return isValidated; 
+            return isValidated;
         }
         // check username & password. 
         public static bool CheckDataLogin(string input)
@@ -62,11 +63,13 @@ namespace BookingHutech.Api_BHutech.Lib.Utils
 
 
         // Check null .
-        public static bool  checkDataNull(string request) {
-            if (request == null || request == "") {
-                return true; 
+        public static bool checkDataNull(string request)
+        {
+            if (request == null || request == "")
+            {
+                return true;
             }
-            return false; 
+            return false;
         }
         public static bool checkData(int request)
         {
@@ -76,11 +79,44 @@ namespace BookingHutech.Api_BHutech.Lib.Utils
             }
             return false;
         }
-        public  bool checkDatetime(DateTime request) {
-            if (request == null ) {
-                return true; 
+        public bool checkDatetime(DateTime request)
+        {
+            if (request == null)
+            {
+                return true;
             }
-            return false; 
+            return false;
         }
+        /// <summary>
+        /// Anh.Trần. Create 2/3/2019. Hàm kiểm tra đăng nhập.
+        /// </summary>
+        /// <param name="request">AccountLoginResponseModel</param>
+        /// <returns>ApiResponse</returns>
+        public static int CheckAccountLogin(AccountLoginResponseModel request)
+        {
+
+            if (request.GetAccountInfo.Count == 0)
+            {
+                return (int)BHutechExceptionType.LOGIN_FAIL;
+            }
+            else if (request.GetAccountInfo[0].Account_Status == "0")
+            {
+                return (int)BHutechExceptionType.ACCOUNTDELETE;
+            }
+            else if (request.GetAccountInfo[0].IsChangePassword == false)
+            {
+
+                return (int)BHutechExceptionType.ISCHANGEPASSWORD;
+            }
+            else if (request.GetAccountInfo[0].Verify == false)
+            {
+
+                return (int)BHutechExceptionType.NOT_VERIFY;
+            }
+            return (int)BHutechExceptionType.SUCCESS;
+
+        }
+
+
     }
 }

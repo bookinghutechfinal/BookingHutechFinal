@@ -20,7 +20,7 @@ namespace BookingHutech.Api_BHutech.CarServices.CarServices
         /// </summary>
         /// <param name="">ListCarRequestModel</param>
         /// <returns>ListCarResponseModel</returns> 
-        public List<ListCarResponseModel> GetListCarDAL(ListCarRequestModel request)
+        public List<ListCarResponseModel> GetListCarServices(ListCarRequestModel request)
         {
 
             ListCarResponseModel result = new ListCarResponseModel();

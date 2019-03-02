@@ -22,10 +22,7 @@ mainmodule.service('$dao', ['$http', '$cookies', '$state', '$rootScope', '$inter
                 }  
                 else if (response.data.ReturnCode === 2) {
                     toastr.error('Hệ thống có lỗi trong quá trình xử lý!');
-                }
-                else if (response.data.ReturnCode === 3) {
-                    toastr.error('Danh nhap that bai'); 
-                }
+                } 
                 else {
                     success(response);
                 }

@@ -23,7 +23,7 @@ namespace BookingHutech.Api_BHutech.Models.Response.AccountResponse
     public class AccountLoginResponseModel
     { 
         public List<AccountInfoResponseModel> GetAccountInfo { get; set; }
-        public List<GetRoleCode> hsGetRoleCode { get; set; }
+        public List<GetRoleCode> GetRoleCode { get; set; }
     }
     public class GetRoleCode
     {

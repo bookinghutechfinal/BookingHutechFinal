@@ -52,7 +52,7 @@ namespace BookingHutech.Controllers.Api
             catch (Exception ex)  // thiếu header. 
             {
                 LogWriter.WriteException(ex);
-                return ApiResponse.ApiNotPermissionCall(); 
+                return ApiResponse.ApiNotPermissionCall();
             }
 
 
@@ -78,9 +78,26 @@ namespace BookingHutech.Controllers.Api
                         //    //var response = carservices.getlistcardal(request);
                         //    return apiresponse.success();
                         //} 
-                      //  request.Password = EncodePassword.CreateSHA256(request.Password);
+                        //  request.Password = EncodePassword.CreateSHA256(request.Password);
+
+                        // Kiểm tra đăng nhập và trả về return code.  
                         var Response = accountServices.AccountLoginServices(request);
-                        return ApiResponse.Success(Response);
+
+                        int Result = DataEntity.CheckAccountLogin(Response);
+                        switch (Result)
+                        {
+                            case 152:
+                                return ApiResponse.LoginFail();
+                            case 102:
+                                return ApiResponse.AccountDelete(); 
+                            case 153:
+                                return ApiResponse.Not_Verify();
+                            case 135:
+                                return ApiResponse.IsChangePassword(Response);
+                            case 1:
+                                return ApiResponse.Success(Response); 
+                        }
+                        return ApiResponse.Error(); // Có lỗi xử lý. 
                     }
                     catch (Exception ex) // Thực hiện gọi hàm truy vấn ở lớp trên bị lỗi. 
                     {

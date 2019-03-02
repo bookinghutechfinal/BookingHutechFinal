@@ -40,7 +40,7 @@ mainmodule.config(function ($stateProvider, $urlRouterProvider, $locationProvide
         .state('changePassword', {
             url: '/doi-mat-khau',
             templateUrl: '/wwwroot/views/pages/account/changePassword.html',
-            controller: 'mainController',
+            controller: 'ChangePasswordController',
         })
         .state('main', {
             url: '/main',
@@ -55,7 +55,7 @@ mainmodule.config(function ($stateProvider, $urlRouterProvider, $locationProvide
          })
         .state('main.bookingcar', {
             url: '/dat-xe',
-            templateUrl: '/wwwroot/views/pages/bookingCar/bookingCar.html',
+            templateUrl: '/wwwroot/views/pages/booking/bookingCar/bookingCar.html',
             controller: 'BookingCarController',
         })
         .state('error404', {
@@ -87,7 +87,11 @@ mainmodule.config(['$translateProvider',
             'PleaseInputAccountName' : 'Vui lòng nhập tên đăng nhập!',
             'PleaseInputPassword' : 'Vui lòng nhập mật khẩu!',
             'LoginFail' : 'Tài khoản hoặc mật khẩu không đúng. Vui lòng kiểm tra lại!',
-            'LoginSuccess' : 'Đăng nhập thành công.',
+            'LoginSuccess': 'Đăng nhập thành công.',
+            'AccountDelete': 'Tài khoản này đã bị khóa. Vui lòng đăng nhập tài khoản khác!',
+            'MessageChangeAccount': 'Vui lòng thay đổi mật khẩu cho lần đầu tiên đăng nhập vào hệ thống!',
+            'NotVerify': 'Tài khoản này chưa được quản trị viên duyệt. Vui lòng đăng nhập tài khoản khác!',
+            'CookiesInconrect': 'Vui lòng đăng nhập!',
             /* -------- Logout ---------- */
             'TitleLogout': 'Đăng xuất',
             'QuestionLogout': 'Bạn có muốn đăng xuất hay không?',
@@ -96,8 +100,7 @@ mainmodule.config(['$translateProvider',
             /* -------- Chang Password ---------- */
             'UserName': 'Tài khoản',
             'NewPassWord': 'Mật khẩu mới',
-            'ConfirmPassWord': 'Nhập lại mật khẩu',
-            'MessageChangeAccount': 'Nhập mật khẩu mới cho',
+            'ConfirmPassWord': 'Nhập lại mật khẩu', 
             'Update': 'Cập nhật',
             /* --------  Booking car ---------- */
             'TypeCar': 'Loại xe',

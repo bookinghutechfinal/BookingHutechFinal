@@ -62,7 +62,7 @@ namespace BookingHutech.Api_BHutech.DAO.AccountDAO
             }
             return request;
         }
-         
+
         /// <summary>
         /// GetRoleMaster. Anh.Tran: Create 1/3/2019 
         /// </summary>

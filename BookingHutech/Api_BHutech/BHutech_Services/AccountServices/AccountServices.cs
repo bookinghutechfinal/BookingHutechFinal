@@ -48,7 +48,9 @@ namespace BookingHutech.Api_BHutech.BHutech_Services.AccountServices
                 string uspAccountLogin = Prototype.SqlCommandStore.uspAccountLogin + " '" +request.UserName+"' , '"+request.Password+"' ";
                 string uspGetRuleCodeByAccount = Prototype.SqlCommandStore.uspGetRuleCodeByAccount + " '" + request.UserName + "' , '" + request.Password + "' ";
                 accountLoginResponse.GetAccountInfo = accountDAO.GetAccountInfoDAO(uspAccountLogin);
-                accountLoginResponse.hsGetRoleCode = accountDAO.GetRoleCodeDAO(uspGetRuleCodeByAccount);
+                if (accountLoginResponse.GetAccountInfo.Count != 0) {
+                    accountLoginResponse.GetRoleCode = accountDAO.GetRoleCodeDAO(uspGetRuleCodeByAccount);
+                } 
                 return accountLoginResponse;
             }
             catch (Exception ex)

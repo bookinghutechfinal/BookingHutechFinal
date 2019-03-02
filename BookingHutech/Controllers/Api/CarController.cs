@@ -34,7 +34,7 @@ namespace BookingHutech.Controllers.Api
                 {
                     try
                     {
-                        var Response = carServices.GetListCarDAL(request);
+                        var Response = carServices.GetListCarServices(request);
                         return ApiResponse.Success(Response);
                     }
                     catch (Exception ex) // Thực hiện gọi hàm truy vấn ở lớp trên bị lỗi. 
