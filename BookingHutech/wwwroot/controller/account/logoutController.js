@@ -25,7 +25,7 @@ function ($scope, $state, $rootScope, $cookies, toastr, $account, $modalInstance
             }
 
             //*** Funciton 1: Gọi hàm logout 
-            $account.logout($scope.reqLogout, function (res) {
+            $account.Logout($scope.reqLogout, function (res) {
 
                 switch (res.data.ReturnCode) {
                     case 0:

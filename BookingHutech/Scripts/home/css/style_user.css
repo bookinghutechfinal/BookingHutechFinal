@@ -1,4 +1,86 @@
-﻿/*Owl Carousel*/
+﻿
+.head label {
+    color: #0020ff;
+    font-family: unset;
+    margin-top: 6px;
+}
+
+.head2 label {
+    margin-left: 37px;
+    font-size: 19px;
+    color: #0020ff;
+    font-family: unset;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+
+.title label {
+    margin-left: 30px;
+    margin-bottom: 11px;
+    font-family: unset;
+    margin-top: 10px;
+}
+
+.inputText textarea {
+    max-height: 60px;
+    max-width: 88%;
+    height: 60px;
+    width: 100%;
+    min-width: 88%;
+    min-height: 60px;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+.inputText2 textarea {
+    max-height: 111px;
+    max-width: 93%;
+    /*height: 78px;
+        width: 100%;*/
+    min-width: 93%;
+    min-height: 35px;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+.inner img {
+    transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+}
+
+    .inner img:hover {
+        transform: scale(1.1, 1.1);
+        -webkit-transform: scale(1.1, 1.1);
+        -moz-transform: scale(1.1, 1.1);
+        -o-transform: scale(1.1, 1.1);
+        -ms-transform: scale(1.1, 1.1);
+    }
+
+.title_TT {
+    margin-left: 1%;
+}
+
+.label_TT_Sup {
+    margin-left: 2%;
+}
+
+.label_TT {
+    margin-bottom: 1%;
+    margin-top: 1%;
+}
+
+.b_Car b {
+    margin-left: 5%;
+}
+
+.message {
+    color: orangered;
+    float: right;
+}
+
+/*Owl Carousel*/
 .owl-carousel .owl-wrapper:after {
     content: ".";
     display: block;
