@@ -28,10 +28,11 @@ namespace BookingHutech.Api_BHutech.Models.Response
                 ReturnCode = ReturnCode
             };
         }
-        public static ApiResponse IsChangePassword(int ReturnCode = (int)BHutechExceptionType.ISCHANGEPASSWORD)
+        public static ApiResponse IsChangePassword(object Data = null, int ReturnCode = (int)BHutechExceptionType.ISCHANGEPASSWORD)
         {
             return new ApiResponse()
             {
+                Data = Data,
                 ReturnCode = ReturnCode
             };
         }
@@ -83,12 +84,32 @@ namespace BookingHutech.Api_BHutech.Models.Response
             };
         }
 
+        public static ApiResponse LoginFail(int ReturnCode = (int)BHutechExceptionType.LOGIN_FAIL, object Data = null)
+        {
+            return new ApiResponse()
+            {
+                Data = Data,
+                ReturnCode = ReturnCode,
+                Message = "Tài khoản hoặc mật khẩu không đúng",
+            };
+        }
+        public static ApiResponse Not_Verify(object Data = null, int ReturnCode = (int)BHutechExceptionType.NOT_VERIFY)
+        {
+            return new ApiResponse()
+            {
+                Data = Data,
+                ReturnCode = ReturnCode,
+                Message = "Tài khoản chưa được quảng trị viên duyệt",
+            };
+        }
+         
         public static ApiResponse ErrorInputDataEntity(object Data = null)
         {
             return new ApiResponse()
             {
                 Data = null,
-                ReturnCode = (int)BHutechExceptionType.ERROR_INPUT_DATA_ENTITY
+                ReturnCode = (int)BHutechExceptionType.ERROR_INPUT_DATA_ENTITY,
+                Message = "Tài khoản hoặc mật khẩu không hợp lệ",
             };
         }
 

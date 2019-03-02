@@ -40,7 +40,7 @@ mainmodule.config(function ($stateProvider, $urlRouterProvider, $locationProvide
         .state('changePassword', {
             url: '/doi-mat-khau',
             templateUrl: '/wwwroot/views/pages/account/changePassword.html',
-            controller: 'mainController',
+            controller: 'ChangePasswordController',
         })
         .state('main', {
             url: '/main',
@@ -53,45 +53,11 @@ mainmodule.config(function ($stateProvider, $urlRouterProvider, $locationProvide
              templateUrl: '/wwwroot/views/pages/home/home.html',
              controller: 'HomeController',
          })
-
-
-        //< script async = "" src = "~/script/js/analytics.js" ></script >
-        //    <script src="~/script/js/jquery.min.js"></script>
-        //    <script src="~/script/js/bootstrap.min.js"></script>
-        //    <script src="~/script/js/fastclick.js"></script>
-        //    <script src="~/script/js/nprogress.js"></script>
-        //    <script src="~/script/js/Chart.min.js"></script>
-        //    <script src="~/script/js/gauge.min.js"></script>
-        //    <script src="~/script/js/bootstrap-progressbar.min.js"></script>
-        //    <script src="~/script/js/icheck.min.js"></script>
-        //    <script src="~/script/js/skycons.js"></script>
-        //    <script src="~/script/js/jquery.flot.js"></script>
-        //    <script src="~/script/js/jquery.flot.pie.js"></script>
-        //    <script src="~/script/js/jquery.flot.time.js"></script>
-        //    <script src="~/script/js/jquery.flot.stack.js"></script>
-        //    <script src="~/script/js/jquery.flot.resize.js"></script>
-        //    <script src="~/script/js/jquery.flot.orderBars.js"></script>
-        //    <script src="~/script/js/jquery.flot.spline.min.js"></script>
-        //    <script src="~/script/js/curvedLines.js"></script>
-        //< script src = "~/script/js/jquery.vmap.js" ></script >
-        //    <script src="~/script/js/jquery.vmap.world.js"></script>
-        //    <script src="~/script/js/jquery.vmap.sampledata.js"></script>
-        //    <script src="~/script/js/moment.min.js"></script>
-        //    <script src="~/script/js/daterangepicker.js"></script>
-
-        //.state('home', {
-        //    url: '/trang-chu',
-        //    templateUrl: '/wwwroot/views/pages/home/home.html',
-        //    controller: 'HomeController',
-        //})
-
-
-        //.state('main.dashboard', {
-        //    url: '/Trang-chu',
-        //    templateUrl: '/wwwroot/views/pages/home/dashboard.html',
-        //    controller: 'dashboardController',
-        //})
-
+        .state('main.bookingcar', {
+            url: '/dat-xe',
+            templateUrl: '/wwwroot/views/pages/booking/bookingCar/bookingCar.html',
+            controller: 'BookingCarController',
+        })
         .state('error404', {
             url: '/error404',
             templateUrl: '/wwwroot/views/common/error404.html',
@@ -108,14 +74,24 @@ mainmodule.config(['$translateProvider',
         }]);
 
         $translateProvider.translations('en', {
-            /* -------- Menu Name ---------- */
-            'ManageProfile': 'Quản lý hồ sơ',
+            /* -------- Menu Name 'Key': 'Valuse' ---------- */
+            'Login': 'Login',
         });
 
 
         $translateProvider.translations('vn', {
-            /* --------  Menu Name ---------- */
-            'ManageProfile': 'Quản lý hồ sơ',
+            /* --------  Menu Main App ---------- */
+            'Home': 'Trang chủ',
+            /* -------- Login ---------- */
+            'Login' : 'Đăng Nhập',
+            'PleaseInputAccountName' : 'Vui lòng nhập tên đăng nhập!',
+            'PleaseInputPassword' : 'Vui lòng nhập mật khẩu!',
+            'LoginFail' : 'Tài khoản hoặc mật khẩu không đúng. Vui lòng kiểm tra lại!',
+            'LoginSuccess': 'Đăng nhập thành công.',
+            'AccountDelete': 'Tài khoản này đã bị khóa. Vui lòng đăng nhập tài khoản khác!',
+            'MessageChangeAccount': 'Vui lòng thay đổi mật khẩu cho lần đầu tiên đăng nhập vào hệ thống!',
+            'NotVerify': 'Tài khoản này chưa được quản trị viên duyệt. Vui lòng đăng nhập tài khoản khác!',
+            'CookiesInconrect': 'Vui lòng đăng nhập!',
             /* -------- Logout ---------- */
             'TitleLogout': 'Đăng xuất',
             'QuestionLogout': 'Bạn có muốn đăng xuất hay không?',
@@ -124,9 +100,15 @@ mainmodule.config(['$translateProvider',
             /* -------- Chang Password ---------- */
             'UserName': 'Tài khoản',
             'NewPassWord': 'Mật khẩu mới',
-            'ConfirmPassWord': 'Nhập lại mật khẩu',
-            'MessageChangeAccount': 'Nhập mật khẩu mới cho',
-            'Update': 'Cập nhật'
+            'ConfirmPassWord': 'Nhập lại mật khẩu', 
+            'Update': 'Cập nhật',
+            /* --------  Booking car ---------- */
+            'TypeCar': 'Loại xe',
+            'All':'-- Tất cả --',
+            'TitileSerachCar':'Tìm kiếm xe',
+            'SearchBookingCar':'Tìm Kiếm',
+            'ResultSerachBookingCar':'Kết quả tìm kiếm',
+            'ListCar':'Danh sách xe',
 
         });
 

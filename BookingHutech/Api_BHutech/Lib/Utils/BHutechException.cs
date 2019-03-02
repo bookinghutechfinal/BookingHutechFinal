@@ -17,9 +17,10 @@ namespace BookingHutech.Api_BHutech.Lib.Utils
         ERROR = 2,    // thất bại  
         ERROR_INPUT_DATA_ENTITY = 3, 
         NOT_PERMISSION = 4,   // Không có quyền  
-        LOST_SESSION = 5,     // Mất sesstion. 
-
+        LOST_SESSION = 5,     // Mất sesstion.  
+        LOGIN_FAIL = 152,
         //anh
+        NOT_VERIFY = 153,
         ACCOUNTDELETE = 102,
         NotSession = 114,
         ISCHANGEPASSWORD = 135,

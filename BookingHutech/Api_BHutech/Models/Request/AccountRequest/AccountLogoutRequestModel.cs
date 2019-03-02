@@ -5,10 +5,11 @@ using System.Web;
 
 namespace BookingHutech.Api_BHutech.Models.Request.AccountRequest
 {
-    public class AccountLoginRequestModel
+    public class AccountLogoutRequestModel
     {
-        public string UserName { get; set; }
-        public string Password { get; set; }
-         
+        public int Account_ID { set; get; }
+
+        public AccountLogoutRequestModel() { }
+
     }
 }

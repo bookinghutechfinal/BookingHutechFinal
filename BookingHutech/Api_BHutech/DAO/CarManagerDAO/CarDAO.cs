@@ -43,10 +43,11 @@ namespace BookingHutech.Api_BHutech.DAO.CarDAO
                 } 
                 con.Close(); 
             }
-            catch (BHutechException ex)
+            catch (Exception ex)
             {
                 LogWriter.WriteException(ex); 
-                con.Close(); 
+                con.Close();
+                throw; 
             }
             return request;
         }

@@ -20,7 +20,7 @@ namespace BookingHutech.Api_BHutech.CarServices.CarServices
         /// </summary>
         /// <param name="">ListCarRequestModel</param>
         /// <returns>ListCarResponseModel</returns> 
-        public List<ListCarResponseModel> GetListCarDAL(ListCarRequestModel request)
+        public List<ListCarResponseModel> GetListCarServices(ListCarRequestModel request)
         {
 
             ListCarResponseModel result = new ListCarResponseModel();
@@ -31,10 +31,10 @@ namespace BookingHutech.Api_BHutech.CarServices.CarServices
                 return result.listCar = employeeDAO.GetListEmployeeDAO(uspGetListCar); 
  
             }
-            catch (BHutechException ex)
+            catch (Exception ex)
             {
-                LogWriter.WriteException(ex);
-                return result.listCar = null;
+                //LogWriter.WriteException(ex);
+                throw; 
             }
  
         }
