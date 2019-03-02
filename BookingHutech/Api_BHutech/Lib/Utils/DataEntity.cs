@@ -61,6 +61,25 @@ namespace BookingHutech.Api_BHutech.Lib.Utils
             return isValidated;
         }
 
+        // check username  
+        public static bool CheckUserName(String input)
+        {
+
+
+             
+            var spacebar = new Regex(@"[\s]+");
+          
+            var hasMinimum8Chars = new Regex(@".{6,}");
+            var regex = new Regex(@"^([a-zA-Z0-9\.\-_?@]+)$");
+            var isValidated = 
+              !spacebar.IsMatch(input) 
+            && regex.IsMatch(input)
+            && hasMinimum8Chars.IsMatch(input)
+            && checkLength(input) 
+            == true;
+            return isValidated;
+        }
+
 
         // Check null .
         public static bool checkDataNull(string request)

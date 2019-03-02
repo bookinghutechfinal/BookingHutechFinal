@@ -69,35 +69,33 @@ namespace BookingHutech.Controllers.Api
                 {
                     try
                     {
-                        // Kiểm tra UserName, Password
-                        //if (dataentity.checkdatalogin(request.username) == false && dataentity.checkdatalogin(request.password) == false)
-                        //    return apiresponse.errorinputdataentity();
-                        //else
-                        //{
-                        //    request.password = encodepassword.createsha256(request.password);
-                        //    //var response = carservices.getlistcardal(request);
-                        //    return apiresponse.success();
-                        //} 
-                        //  request.Password = EncodePassword.CreateSHA256(request.Password);
-
-                        // Kiểm tra đăng nhập và trả về return code.  
-                        var Response = accountServices.AccountLoginServices(request);
-
-                        int Result = DataEntity.CheckAccountLogin(Response);
-                        switch (Result)
+                       // Kiểm tra UserName, Password
+                        if (DataEntity.CheckUserName(request.UserName) == false || DataEntity.CheckUserName(request.Password) == false) 
+                            return ApiResponse.LoginFail();
+                        else
                         {
-                            case 152:
-                                return ApiResponse.LoginFail();
-                            case 102:
-                                return ApiResponse.AccountDelete(); 
-                            case 153:
-                                return ApiResponse.Not_Verify();
-                            case 135:
-                                return ApiResponse.IsChangePassword(Response);
-                            case 1:
-                                return ApiResponse.Success(Response); 
+                            request.Password = EncodePassword.CreateSHA256(request.Password);
+                            // Kiểm tra đăng nhập và trả về return code.  
+                            var Response = accountServices.AccountLoginServices(request);
+
+                            int Result = DataEntity.CheckAccountLogin(Response);
+                            switch (Result)
+                            {
+                                case 152:
+                                    return ApiResponse.LoginFail();
+                                case 102:
+                                    return ApiResponse.AccountDelete();
+                                case 153:
+                                    return ApiResponse.Not_Verify();
+                                case 135:
+                                    return ApiResponse.IsChangePassword(Response);
+                                case 1:
+                                    return ApiResponse.Success(Response);
+                            }
+                            return ApiResponse.Error(); // Có lỗi xử lý. 
                         }
-                        return ApiResponse.Error(); // Có lỗi xử lý. 
+                       
+                        
                     }
                     catch (Exception ex) // Thực hiện gọi hàm truy vấn ở lớp trên bị lỗi. 
                     {
