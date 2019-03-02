@@ -144,7 +144,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api_BHutech\BHutech_Services\AccountServices\AccountServices.cs" />
-    <Compile Include="Api_BHutech\BHutech_Services\CarServices\CarManagerServices.cs" />
     <Compile Include="Api_BHutech\BHutech_Services\CarServices\CarServices.cs" />
     <Compile Include="Api_BHutech\DAO\AccountDAO\AccountDAO.cs" />
     <Compile Include="Api_BHutech\Lib\Utils\EncodePassword.cs" />
@@ -927,6 +926,7 @@
     <Content Include="wwwroot\controller\mainController.js" />
     <Content Include="wwwroot\module\config.js" />
     <Content Include="wwwroot\module\module.js" />
+    <Content Include="wwwroot\service\account.js" />
     <Content Include="wwwroot\service\dao.js" />
     <Content Include="wwwroot\extensions\alert.js" />
     <Content Include="wwwroot\service\dataEntity.js" />
@@ -1189,6 +1189,7 @@
     <Content Include="script\css\translateelement.css" />
     <Content Include="wwwroot\views\pages\account\login.html" />
     <Content Include="wwwroot\views\pages\account\popupLogout.html" />
+    <Content Include="wwwroot\views\pages\booking\bookingCar\bookingCar.html" />
     <Content Include="wwwroot\views\pages\home\home.html" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\Settings.settings">
