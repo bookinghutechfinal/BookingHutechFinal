@@ -97,6 +97,7 @@ mainmodule.config(['$translateProvider',
             'QuestionLogout': 'Bạn có muốn đăng xuất hay không?',
             'CancelLogout': 'Hủy',
             'YesLogout': 'Đồng ý',
+            'LogoutFail':'Đăng xuất thất bại!',
             /* -------- Chang Password ---------- */
             'UserName': 'Tài khoản',
             'NewPassWord': 'Mật khẩu mới',

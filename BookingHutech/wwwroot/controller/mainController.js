@@ -27,24 +27,76 @@ mainmodule.controller('mainController', ['$scope', '$state', '$rootScope', '$mod
         }
 
         $scope.logout = function () {
-            //toastr.success("Logout");
-            var modalInstance = $modal.open({
-                animation: true,
-                ariaLabelledBy: 'modal-title',
-                ariaDescribedBy: 'modal-body',
-                templateUrl: '/wwwroot/views/pages/account/popupLogout.html',
-                controller: 'LogoutController',
-                controllerAs: 'content',
-                backdrop: 'static',
-                size: 'sm',
-                resolve: {
-                    RequestData: function () {
-                        return null;
-                    },
+
+            var AccountInfo = $account.getAccountInfo();
+            $scope.goToLogin = function () {
+                //$cookies.remove("AccountInfo");
+                //$cookies.remove("AccountInfo_");
+                //$cookies.remove("ObjRoleCode");
+                $account.RemoveAccountInfo();
+               // $scope.close();
+                $state.go('login');
+            };
+
+            if (checkNull(AccountInfo) === true) {
+                $scope.goToLogin();
+                return;
+            }
+            $scope.reqLogout = {
+                Account_ID: AccountInfo.ObjAccountInfo.Account_ID,
+            }
+
+            //*** Funciton 1: Gọi hàm logout 
+            $account.Logout($scope.reqLogout, function (res) {
+
+                switch (res.data.ReturnCode) {
+                    case 0:
+                        toastr.error($rootScope.initMessage('LogoutFail'));
+                        break;
+                    case 1:
+                       // $modalInstance.close();
+                        $scope.goToLogin();
+                        break;
                 }
-            });
-            modalInstance.result.then(function () {
 
             });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            ////toastr.success("Logout");
+            //var modalInstance = $modal.open({
+            //    animation: true,
+            //    ariaLabelledBy: 'modal-title',
+            //    ariaDescribedBy: 'modal-body',
+            //    templateUrl: '/wwwroot/views/pages/account/popupLogout.html',
+            //    controller: 'LogoutController',
+            //    controllerAs: 'content',
+            //    backdrop: 'static',
+            //    size: 'sm',
+            //    resolve: {
+            //        RequestData: function () {
+            //            return null;
+            //        },
+            //    }
+            //});
+            //modalInstance.result.then(function () {
+
+            //});
         }
-    }]);  
+    }]);
+
+
+
+ 

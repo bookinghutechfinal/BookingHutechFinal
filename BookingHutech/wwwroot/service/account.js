@@ -39,10 +39,10 @@ mainmodule.service('$account', ['$dao', '$cookies', '$state', function ($dao, $c
 
     this.RemoveAccountInfo = function () {
         $cookies.remove("AccountInfo");
-        $cookies.remove("AccountInfoCheck");
-        $cookies.remove("AccountInfo_"); // dùng để kiểm tra account phía dưới 
-        $cookies.remove("ObjRoleCode"); // dùng để kiểm tra Role phía dưới 
-        $cookies.remove("ProfileReqModel"); // 
+        //$cookies.remove("AccountInfoCheck");
+        //$cookies.remove("AccountInfo_"); // dùng để kiểm tra account phía dưới 
+        //$cookies.remove("ObjRoleCode"); // dùng để kiểm tra Role phía dưới 
+        //$cookies.remove("ProfileReqModel"); // 
     }
 
     this.KiemTraUserLogin = function () {

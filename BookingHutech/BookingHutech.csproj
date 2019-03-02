@@ -730,9 +730,11 @@
     <Content Include="Scripts\jquery\src\var\toString.js" />
     <Content Include="Scripts\jquery\src\wrap.js" />
     <Content Include="Scripts\jvectormap\jquery-jvectormap.css" />
+    <Content Include="wwwroot\controller\account\changePasswordController.js" />
     <Content Include="wwwroot\controller\account\logoutController.js" />
     <Content Include="wwwroot\controller\account\loginController.js" />
     <Content Include="wwwroot\controller\app\appController.js" />
+    <Content Include="wwwroot\controller\booking\bookingCar\bookingCarController.js" />
     <Content Include="wwwroot\controller\home\homeController.js" />
     <Content Include="wwwroot\extensions\maps.js" />
     <Content Include="Scripts\moment\js\moment.min.js" />
@@ -1187,6 +1189,7 @@
     <Content Include="script\js\nprogress.js" />
     <Content Include="script\js\skycons.js" />
     <Content Include="script\css\translateelement.css" />
+    <Content Include="wwwroot\views\pages\account\changePassword.html" />
     <Content Include="wwwroot\views\pages\account\login.html" />
     <Content Include="wwwroot\views\pages\account\popupLogout.html" />
     <Content Include="wwwroot\views\pages\booking\bookingCar\bookingCar.html" />
