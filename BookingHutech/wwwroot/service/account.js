@@ -27,8 +27,8 @@ mainmodule.service('$account', ['$dao', '$cookies', '$state', function ($dao, $c
 
     this.ChangePassword = function (request, success, finish) {
         $dao.call({
-            method: 'POST',
-            operater: 'Change/ChangePassword',
+            method: 'Patch',
+            operater: 'Account/ChangePassword',
             data: request
         }, success, finish)
     };

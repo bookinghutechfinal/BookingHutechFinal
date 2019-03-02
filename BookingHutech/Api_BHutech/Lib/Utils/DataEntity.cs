@@ -22,14 +22,14 @@ namespace BookingHutech.Api_BHutech.Lib.Utils
             return false;
         }
         // Check pass word 
-        public static bool checkPassWord(string input)
+        public static bool CheckPassWord(string input)
         {
             var hasNumber = new Regex(@"[0-9]+");
             var spacebar = new Regex(@"[\s]+");
             var hasUpperChar = new Regex(@"[A-Z]+");
             var hasLowerChar = new Regex(@"[a-z]+");
             var hasMinimum8Chars = new Regex(@".{6,}");
-            var regex = new Regex(@"^[_a-zA-Z0-9\W]+$");
+            var regex = new Regex(@"^([a-zA-Z0-9\.\-_?@]+)$");
             var isValidated =
             hasNumber.IsMatch(input)
             && !spacebar.IsMatch(input)
